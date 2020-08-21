@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct LightChart: View {
+public struct LightChartView: View {
     
     private let data: [Double]
     private let type: ChartType
