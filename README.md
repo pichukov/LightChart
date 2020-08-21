@@ -38,7 +38,7 @@ By default it will draw a red line chart:
 
 To customize it you can use several properties:
 
-#####type
+##### type
 The type of chart, it's an `enum` with two cases:
 - `.line` is a default type that will draw a chart presented above
 - `.curved` will draw a curved chart, for example:
@@ -49,7 +49,7 @@ LightChartView(data: [2, 17, 9, 23, 10], type: .curved)
     <img width="200" src="https://raw.githubusercontent.com/pichukov/PublicAssets/master/curvedCart.png">
 </div>
 
-#####visualType
+##### visualType
 The visual part of the chart. An `enum` with three cases:
 - `.outline(color: Color, lineWidth: CGFloat)` to specify a `color` and `lineWidth` for `stroke`
 ```swift
@@ -87,7 +87,7 @@ LightChartView(data: [2, 17, 9, 23, 10],
     <img width="200" src="https://raw.githubusercontent.com/pichukov/PublicAssets/master/visualTypeCustomFilledChart.png">
 </div>
 
-#####offset
+##### offset
 By default the `offset` is `0` and it means that the chart takes up the entire area of the parent view. You can move the chart line up with changing the `offset` value. For example if you will use the `offset: 0.2` you chart line will move up and take only 80% of the parent view
 ```swift
 LightChartView(data: [2, 17, 9, 23, 10],
@@ -100,7 +100,7 @@ LightChartView(data: [2, 17, 9, 23, 10],
 </div>
 As you can see on picture above the offset effects only the chart line but not the fill gradient
 
-#####currentValueLineType
+##### currentValueLineType
 There is an option to add a horizontal line that will point the last value of the data set. A `currentValueLineType` is an `enum` that has three cases:
 - `.none` is a default value that doesn't show any line
 - `.line(color: Color, lineWidth: CGFloat)` adds a line with `color` and `lineWidth` for a `stroke`
