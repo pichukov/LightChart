@@ -21,7 +21,7 @@ struct Math {
             return vector
         }
         let max = rawMax - min
-        return vector.map { ($0 - min) / max }
+        return vector.map { ($0 - min) / (max != 0 ? max : 1) }
     }
 
     static func stretchIn(_ vector: [Double], offset: Double) -> [Double] {

@@ -21,9 +21,10 @@ extension DataRepresentable {
             vector = Math.stretchIn(vector, offset: offset)
         }
         var points: [CGPoint] = []
+        let isSame = sameValues(in: vector)
         for i in 0..<vector.count {
             let x = frame.size.width / CGFloat(vector.count - 1) * CGFloat(i)
-            let y = frame.size.height * CGFloat(vector[i])
+            let y = isSame ? frame.size.height / 2 : frame.size.height * CGFloat(vector[i])
             points.append(CGPoint(x: x, y: y))
         }
         return points
@@ -38,5 +39,17 @@ extension DataRepresentable {
             case .customFilled(_, let lineWidth, _):
                 return lineWidth
         }
+    }
+    
+    private func sameValues(in vector: [Double]) -> Bool {
+        guard let prev = vector.first else {
+            return true
+        }
+        for value in vector {
+            if value != prev {
+                return false
+            }
+        }
+        return true
     }
 }
