@@ -9,13 +9,13 @@ import Foundation
 import CoreGraphics
 
 protocol DataRepresentable {
-    func points(forData data: [Double], frame: CGRect, offset: Double) -> [CGPoint]
+    func points(forData data: [Double], frame: CGRect, offset: Double, lineWidth: CGFloat) -> [CGPoint]
     func lineWidth(visualType: ChartVisualType) -> CGFloat
 }
 
 extension DataRepresentable {
     
-    func points(forData data: [Double], frame: CGRect, offset: Double) -> [CGPoint] {
+    func points(forData data: [Double], frame: CGRect, offset: Double, lineWidth: CGFloat) -> [CGPoint] {
         var vector = Math.stretchOut(Math.norm(data))
         if offset != 0 {
             vector = Math.stretchIn(vector, offset: offset)
@@ -24,7 +24,7 @@ extension DataRepresentable {
         let isSame = sameValues(in: vector)
         for i in 0..<vector.count {
             let x = frame.size.width / CGFloat(vector.count - 1) * CGFloat(i)
-            let y = isSame ? frame.size.height / 2 : frame.size.height * CGFloat(vector[i])
+            let y = isSame ? frame.size.height / 2 : (frame.size.height - lineWidth) * CGFloat(vector[i]) + lineWidth / 2
             points.append(CGPoint(x: x, y: y))
         }
         return points

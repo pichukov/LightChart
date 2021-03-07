@@ -36,7 +36,10 @@ public struct LineChart: View {
         self.type = visualType
         self.offset = offset
         self.currentValueLineType = currentValueLineType
-        self.points = Math.stretchEdges(points(forData: data, frame: frame, offset: offset), lineWidth: lineWidth(visualType: visualType))
+        self.points = points(forData: data,
+                             frame: frame,
+                             offset: offset,
+                             lineWidth: lineWidth(visualType: visualType))
     }
     
     public var body: some View {

@@ -31,23 +31,4 @@ struct Math {
         let newMax = max - offset
         return vector.map { $0 * newMax + offset }
     }
-    
-    static func stretchEdges(_ points: [CGPoint], lineWidth: CGFloat) -> [CGPoint] {
-        guard points.count > 1 && lineWidth > 1 else {
-            return points
-        }
-        guard let max: CGFloat = points.max(by: { $0.y < $1.y })?.y,
-              let min: CGFloat = points.max(by: { $0.y > $1.y })?.y else {
-            return points
-        }
-        var updatedPoints = points
-        for i in 0..<updatedPoints.count {
-            if updatedPoints[i].y == min {
-                updatedPoints[i].y += lineWidth / 2
-            } else if updatedPoints[i].y == max {
-                updatedPoints[i].y -= lineWidth / 2
-            }
-        }
-        return updatedPoints
-    }
 }
