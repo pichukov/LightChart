@@ -6,7 +6,8 @@ import PackageDescription
 let package = Package(
     name: "LightChart",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v13),
+        .watchOS(.v6)
     ],
     products: [
         .library(
